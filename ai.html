@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeCraft AI - Your Coding Assistant</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        header {
+            background-color: #007BFF;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+            padding: 10px;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .ai-section {
+            padding: 50px 20px;
+            text-align: center;
+            background-color: white;
+        }
+        .ai-section h1 {
+            font-size: 2.5em;
+            margin: 0;
+        }
+        .ai-section p {
+            font-size: 1.2em;
+            color: #666;
+            margin: 20px 0;
+        }
+        .chat-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .chat-box {
+            height: 400px;
+            overflow-y: auto;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            background-color: white;
+            margin-bottom: 20px;
+        }
+        .chat-message {
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .user-message {
+            background-color: #007BFF;
+            color: white;
+            text-align: right;
+        }
+        .ai-message {
+            background-color: #f1f1f1;
+            color: #333;
+            text-align: left;
+        }
+        .input-box {
+            display: flex;
+            justify-content: space-between;
+        }
+        .input-box input {
+            width: 85%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .input-box button {
+            width: 12%;
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>CodeCraft AI</h1>
+        <p>Your Intelligent Coding Assistant</p>
+    </header>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#tutorials">Tutorials</a>
+        <a href="#community">Community</a>
+        <a href="#tools">Tools</a>
+    </nav>
+    <section class="ai-section">
+        <h1>Interact with CodeCraft AI</h1>
+        <p>Get instant help with code generation, debugging, and learning. Just ask!</p>
+        <div class="chat-container">
+            <div class="chat-box" id="chat-box">
+                <div class="chat-message ai-message">
+                    <p>Hi! I'm CodeCraft AI. How can I assist you today?</p>
+                </div>
+            </div>
+            <div class="input-box">
+                <input type="text" id="user-input" placeholder="Type your message here...">
+                <button onclick="sendMessage()">Send</button>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <p>&copy; 2025 CodeCraft. All rights reserved.</p>
+    </footer>
+    <script>
+        function sendMessage() {
+            const userInput = document.getElementById('user-input').value;
+            const chatBox = document.getElementById('chat-box');
+
+            if (userInput.trim() === "") return;
+
+            // Add user message
+            const userMessage = document.createElement('div');
+            userMessage.className = 'chat-message user-message';
+            userMessage.innerHTML = `<p>${userInput}</p>`;
+            chatBox.appendChild(userMessage);
+
+            // Simulate AI response
+            setTimeout(() => {
+                const aiMessage = document.createElement('div');
+                aiMessage.className = 'chat-message ai-message';
+                aiMessage.innerHTML = `<p>Here’s a suggestion: ${userInput.toUpperCase()}</p>`;
+                chatBox.appendChild(aiMessage);
+                chatBox.scrollTop = chatBox.scrollHeight;
+            }, 1000);
+
+            // Clear input
+            document.getElementById('user-input').value = "";
+        }
+    </script>
+</body>
+</html>
